@@ -8,47 +8,36 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet var imgView: UIImageView!
-    @IBOutlet var btnResize: UIButton!
+    var maxLength = 6
+    var currentLength = 1
     
-    var isZoom = false
-    var imgOn: UIImage?
-    var imgOff: UIImage?
+    @IBOutlet var lblTitle: UILabel!
+    @IBOutlet var imgView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        imgOn = UIImage(named: "lamp_on.png")
-        imgOff = UIImage(named: "lamp_off.png")
-        
-        imgView.image = imgOn
+        imgView.image = UIImage(named: "1.png")
     }
-
     
-    @IBAction func handleButton(_sender: UIButton) {
-        let scale = 2.0
-        var newWidth: CGFloat, newHeight: CGFloat
-        
-        if(isZoom) {
-            newWidth = imgView.frame.width / scale
-            newHeight = imgView.frame.height / scale
-            btnResize.setTitle("확대", for: .normal)
-        } else {
-            newWidth = imgView.frame.width * scale
-            newHeight = imgView.frame.height * scale
-            btnResize.setTitle("축소", for: .normal)
+    @IBAction func handleNext(_ sender: UIButton) {
+        currentLength = currentLength + 1
+        if(currentLength > maxLength) {
+            currentLength = 1
         }
-        imgView.frame.size = CGSize(width: newWidth, height: newHeight)
-        isZoom = !isZoom
+        
+        imgView.image = UIImage(named: "\(currentLength).png")
     }
-    @IBAction func swtImage(_ sender: UISwitch) {
-        if(sender.isOn) {
-            imgView.image = imgOn
+    
+    @IBAction func handlePrev(_ sender: UIButton) {
+        if(currentLength == 1) {
+            currentLength = maxLength
         } else {
-            imgView.image = imgOff
+            currentLength = currentLength - 1
         }
         
+        imgView.image = UIImage(named: "\(currentLength).png")
     }
 }
 
