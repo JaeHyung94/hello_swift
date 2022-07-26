@@ -17,6 +17,8 @@
 		40C20E8D288FA085000A4BD7 /* Hello_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20E8C288FA085000A4BD7 /* Hello_SwiftTests.swift */; };
 		40C20E97288FA086000A4BD7 /* Hello_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20E96288FA086000A4BD7 /* Hello_SwiftUITests.swift */; };
 		40C20E99288FA086000A4BD7 /* Hello_SwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20E98288FA086000A4BD7 /* Hello_SwiftUITestsLaunchTests.swift */; };
+		40C20EA7288FACB0000A4BD7 /* lamp_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C20EA5288FACB0000A4BD7 /* lamp_off.png */; };
+		40C20EA8288FACB0000A4BD7 /* lamp_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C20EA6288FACB0000A4BD7 /* lamp_on.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		40C20E92288FA086000A4BD7 /* Hello_SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Hello_SwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C20E96288FA086000A4BD7 /* Hello_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hello_SwiftUITests.swift; sourceTree = "<group>"; };
 		40C20E98288FA086000A4BD7 /* Hello_SwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hello_SwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		40C20EA5288FACB0000A4BD7 /* lamp_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lamp_off.png; sourceTree = "<group>"; };
+		40C20EA6288FACB0000A4BD7 /* lamp_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lamp_on.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 		40C20E71288FA083000A4BD7 /* Hello_Swift */ = {
 			isa = PBXGroup;
 			children = (
+				40C20EA5288FACB0000A4BD7 /* lamp_off.png */,
+				40C20EA6288FACB0000A4BD7 /* lamp_on.png */,
 				40C20E72288FA083000A4BD7 /* AppDelegate.swift */,
 				40C20E74288FA083000A4BD7 /* SceneDelegate.swift */,
 				40C20E76288FA083000A4BD7 /* ViewController.swift */,
@@ -236,7 +242,9 @@
 			files = (
 				40C20E82288FA085000A4BD7 /* LaunchScreen.storyboard in Resources */,
 				40C20E7F288FA085000A4BD7 /* Assets.xcassets in Resources */,
+				40C20EA8288FACB0000A4BD7 /* lamp_on.png in Resources */,
 				40C20E7A288FA083000A4BD7 /* Main.storyboard in Resources */,
+				40C20EA7288FACB0000A4BD7 /* lamp_off.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
