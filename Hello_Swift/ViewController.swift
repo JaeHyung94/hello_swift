@@ -8,32 +8,43 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let timeSelector: Selector = #selector(ViewController.updateTime)
-    let interval = 1.0
-    var count = 0
+    let timeSelector: Selector = #selector(ViewController.checkTimer)
+    var selectedDate: Date!
+    var currentDate: Date!
     
     @IBOutlet var labelCurrentDate: UILabel!
-    @IBOutlet var labelSelectDate: UILabel!
+    @IBOutlet var labelSelectedDate: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        Timer.scheduledTimer(timeInterval: interval, target: self, selector: timeSelector, userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: timeSelector, userInfo: nil, repeats: true)
     }
     
-    @IBAction func handleSelect(_ sender: UIDatePicker) {
+    @IBAction func handleSelectDate(_ sender: UIDatePicker) {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm EEE"
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss EEE"
         
-        labelSelectDate.text = "선택 시간: " + formatter.string(from: sender.date)
+        selectedDate = sender.date
+            labelSelectedDate.text = "선택 시간: " + formatter.string(from: selectedDate)
     }
     
-    @objc func updateTime() {
+    @objc func checkTimer() {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:s EEE"
+        currentDate = Date()
         
-        labelCurrentDate.text = "현재 시간: " + formatter.string(from: Date())
+        formatter.locale = Locale(identifier: "ko-KR")
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss EEE"
+        
+        labelCurrentDate.text = "현재 시간: " + formatter.string(from: currentDate)
+
+        if(selectedDate != nil && currentDate >= (selectedDate + 60)) {
+            self.view.backgroundColor = UIColor.white
+        } else if (selectedDate != nil && currentDate > selectedDate) {
+            self.view.backgroundColor = UIColor.red
+        } else {
+            self.view.backgroundColor = UIColor.white
+        }
     }
 }
 
