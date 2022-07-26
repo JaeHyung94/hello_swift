@@ -8,36 +8,32 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var maxLength = 6
-    var currentLength = 1
+    let timeSelector: Selector = #selector(ViewController.updateTime)
+    let interval = 1.0
+    var count = 0
     
-    @IBOutlet var lblTitle: UILabel!
-    @IBOutlet var imgView: UIImageView!
+    @IBOutlet var labelCurrentDate: UILabel!
+    @IBOutlet var labelSelectDate: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        imgView.image = UIImage(named: "1.png")
+        Timer.scheduledTimer(timeInterval: interval, target: self, selector: timeSelector, userInfo: nil, repeats: true)
     }
     
-    @IBAction func handleNext(_ sender: UIButton) {
-        currentLength = currentLength + 1
-        if(currentLength > maxLength) {
-            currentLength = 1
-        }
+    @IBAction func handleSelect(_ sender: UIDatePicker) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm EEE"
         
-        imgView.image = UIImage(named: "\(currentLength).png")
+        labelSelectDate.text = "선택 시간: " + formatter.string(from: sender.date)
     }
     
-    @IBAction func handlePrev(_ sender: UIButton) {
-        if(currentLength == 1) {
-            currentLength = maxLength
-        } else {
-            currentLength = currentLength - 1
-        }
+    @objc func updateTime() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:s EEE"
         
-        imgView.image = UIImage(named: "\(currentLength).png")
+        labelCurrentDate.text = "현재 시간: " + formatter.string(from: Date())
     }
 }
 
