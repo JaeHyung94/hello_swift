@@ -7,26 +7,26 @@
 
 import UIKit
 
-var images = ["01.png", "02.png", "03.png", "04.png", "05.png", "06.png"]
-
 class ViewController: UIViewController{
-    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var labelPage: UILabel!
     @IBOutlet var pageControl: UIPageControl!
+    
+    var pages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        pageControl.numberOfPages = pages.count
         pageControl.currentPage = 0
-        pageControl.numberOfPages = images.count
-        pageControl.hidesForSinglePage = true
         pageControl.pageIndicatorTintColor = UIColor.gray
         pageControl.currentPageIndicatorTintColor = UIColor.blue
         
-        imageView.image = UIImage(named: images[0])
+        labelPage.text = String(pages[0])
     }
+    
     
     @IBAction func handlePageControl(_ sender: UIPageControl) {
-        imageView.image = UIImage(named: images[pageControl.currentPage])
+        labelPage.text = String(pages[pageControl.currentPage])
     }
-    
 }
