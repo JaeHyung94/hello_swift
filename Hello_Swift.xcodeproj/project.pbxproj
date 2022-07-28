@@ -17,6 +17,12 @@
 		40C20E8D288FA085000A4BD7 /* Hello_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20E8C288FA085000A4BD7 /* Hello_SwiftTests.swift */; };
 		40C20E97288FA086000A4BD7 /* Hello_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20E96288FA086000A4BD7 /* Hello_SwiftUITests.swift */; };
 		40C20E99288FA086000A4BD7 /* Hello_SwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20E98288FA086000A4BD7 /* Hello_SwiftUITestsLaunchTests.swift */; };
+		40C20ED828927740000A4BD7 /* 05.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C20ED228927740000A4BD7 /* 05.png */; };
+		40C20ED928927740000A4BD7 /* 02.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C20ED328927740000A4BD7 /* 02.png */; };
+		40C20EDA28927740000A4BD7 /* 04.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C20ED428927740000A4BD7 /* 04.png */; };
+		40C20EDB28927740000A4BD7 /* 06.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C20ED528927740000A4BD7 /* 06.png */; };
+		40C20EDC28927740000A4BD7 /* 01.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C20ED628927740000A4BD7 /* 01.png */; };
+		40C20EDD28927740000A4BD7 /* 03.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C20ED728927740000A4BD7 /* 03.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +57,12 @@
 		40C20E92288FA086000A4BD7 /* Hello_SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Hello_SwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C20E96288FA086000A4BD7 /* Hello_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hello_SwiftUITests.swift; sourceTree = "<group>"; };
 		40C20E98288FA086000A4BD7 /* Hello_SwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hello_SwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		40C20ED228927740000A4BD7 /* 05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 05.png; sourceTree = "<group>"; };
+		40C20ED328927740000A4BD7 /* 02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 02.png; sourceTree = "<group>"; };
+		40C20ED428927740000A4BD7 /* 04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 04.png; sourceTree = "<group>"; };
+		40C20ED528927740000A4BD7 /* 06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 06.png; sourceTree = "<group>"; };
+		40C20ED628927740000A4BD7 /* 01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 01.png; sourceTree = "<group>"; };
+		40C20ED728927740000A4BD7 /* 03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 03.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +113,7 @@
 		40C20E71288FA083000A4BD7 /* Hello_Swift */ = {
 			isa = PBXGroup;
 			children = (
+				40C20EDE2892774D000A4BD7 /* images */,
 				40C20E72288FA083000A4BD7 /* AppDelegate.swift */,
 				40C20E74288FA083000A4BD7 /* SceneDelegate.swift */,
 				40C20E76288FA083000A4BD7 /* ViewController.swift */,
@@ -128,6 +141,19 @@
 				40C20E98288FA086000A4BD7 /* Hello_SwiftUITestsLaunchTests.swift */,
 			);
 			path = Hello_SwiftUITests;
+			sourceTree = "<group>";
+		};
+		40C20EDE2892774D000A4BD7 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				40C20ED628927740000A4BD7 /* 01.png */,
+				40C20ED328927740000A4BD7 /* 02.png */,
+				40C20ED728927740000A4BD7 /* 03.png */,
+				40C20ED428927740000A4BD7 /* 04.png */,
+				40C20ED228927740000A4BD7 /* 05.png */,
+				40C20ED528927740000A4BD7 /* 06.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,8 +260,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40C20ED928927740000A4BD7 /* 02.png in Resources */,
 				40C20E82288FA085000A4BD7 /* LaunchScreen.storyboard in Resources */,
+				40C20EDC28927740000A4BD7 /* 01.png in Resources */,
 				40C20E7F288FA085000A4BD7 /* Assets.xcassets in Resources */,
+				40C20EDA28927740000A4BD7 /* 04.png in Resources */,
+				40C20ED828927740000A4BD7 /* 05.png in Resources */,
+				40C20EDB28927740000A4BD7 /* 06.png in Resources */,
+				40C20EDD28927740000A4BD7 /* 03.png in Resources */,
 				40C20E7A288FA083000A4BD7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
