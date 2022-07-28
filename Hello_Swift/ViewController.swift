@@ -6,59 +6,95 @@
 //
 
 import UIKit
+import WebKit
 
-class ViewController: UIViewController {
-    let INTERVAL = 1.0
-    var selectedTime: String!
-    var currentTime: String!
-    var isAlertOn: Bool = false
+class ViewController: UIViewController, WKNavigationDelegate {
+    @IBOutlet var urlInput: UITextField!
+    @IBOutlet var webView: WKWebView!
+    @IBOutlet var indicator: UIActivityIndicatorView!
     
-    @IBOutlet var labelCurrentDate: UILabel!
-    @IBOutlet var labelSelectedDate: UILabel!
-    
+    func loadWebPage(_ url: String) {
+        let target = checkURL(url: url)
+        let targetUrl = URL(string: target)
+        let request = URLRequest(url: targetUrl!)
+        
+        webView.load(request)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        Timer.scheduledTimer(timeInterval: INTERVAL, target: self, selector: #selector(timer), userInfo: nil, repeats: true)
+        webView.navigationDelegate = self
+        loadWebPage("https://naver.com")
     }
     
-    @objc func timer() {
-        let currentDate = Date()
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ko-KR")
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss EEE"
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        indicator.startAnimating()
+        indicator.isHidden = false
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        indicator.stopAnimating()
+        indicator.isHidden = true
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        indicator.stopAnimating()
+        indicator.isHidden = true
+    }
+    
+    func checkURL(url: String) -> String {
+        var target = url
+        let flag = target.hasPrefix("https://")
         
-        labelCurrentDate.text = "현재 시간: " + formatter.string(from: currentDate)
-        
-        formatter.dateFormat = "yyyy-MM-dd HH:mm"
-        currentTime = formatter.string(from: currentDate)
-        
-        if currentTime != nil && selectedTime != nil {
-            if selectedTime <= currentTime && !isAlertOn {
-                let alertController = UIAlertController(title: "알림", message: "설정된 시간입니다!", preferredStyle: UIAlertController.Style.alert)
-                
-                let alertAction = UIAlertAction(title: "넹!", style: UIAlertAction.Style.default, handler: {
-                    ACTION in self.selectedTime = formatter.string(from: Date() + 60)
-                    self.isAlertOn = false
-                })
-                
-                alertController.addAction(alertAction)
-                present(alertController, animated: true, completion: {
-                    self.isAlertOn = true
-                })
-            }
+        if !flag {
+            target = "https://" + target
         }
+        
+        return target
     }
 
-    @IBAction func handleSelectDate (_ sender: UIDatePicker) {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ko-KR")
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss EEE"
+    @IBAction func handleSubmit(_ sender: UIButton) {
+        let target = checkURL(url: urlInput.text!)
+        urlInput.text = ""
+        loadWebPage(target)
+    }
+    
+    @IBAction func handleSite1Button(_ sender: UIButton) {
+        loadWebPage("https://yonsei.ac.kr")
+    }
+    
+    @IBAction func handleSite2Button(_ sender: UIButton) {
+        loadWebPage("https://velog.io")
+    }
+    
+    @IBAction func handleHTMLButton(_ sender: UIButton) {
+        let htmlString = "<h1>This is htmlString</h1><a href=\"https://daum.net\">daum.net으로 이동</a>"
         
-        labelSelectedDate.text = "선택 시간: " + formatter.string(from: sender.date)
+        webView.loadHTMLString(htmlString, baseURL: nil)
+    }
+    
+    @IBAction func handleFileButton(_ sender: UIButton) {
+        let path = Bundle.main.path(forResource: "samplehtml", ofType: "html")
+        let url = URL(fileURLWithPath: path!)
+        let request = URLRequest(url: url)
         
-        formatter.dateFormat = "yyyy-MM-dd HH:mm"
-        selectedTime = formatter.string(from: sender.date)
+        webView.load(request)
+    }
+    
+    @IBAction func handleCancel(_ sender: UIBarButtonItem) {
+        webView.stopLoading()
+    }
+    
+    @IBAction func handleRefresh(_ sender: UIBarButtonItem) {
+        webView.reload()
+    }
+    
+    @IBAction func handleGoBack(_ sender: UIBarButtonItem) {
+        webView.goBack()
+    }
+    
+    @IBAction func handleGoForward(_ sender: UIBarButtonItem) {
+        webView.goForward()
     }
 }
