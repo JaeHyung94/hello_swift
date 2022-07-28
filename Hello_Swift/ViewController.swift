@@ -8,82 +8,57 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let imageOn = UIImage(named: "lamp-on.png")
-    let imageOff = UIImage(named: "lamp-off.png")
-    let imageRemove = UIImage(named: "lamp-remove.png")
+    let INTERVAL = 1.0
+    var selectedTime: String!
+    var currentTime: String!
+    var isAlertOn: Bool = false
     
-    var isOn = true
+    @IBOutlet var labelCurrentDate: UILabel!
+    @IBOutlet var labelSelectedDate: UILabel!
     
-    @IBOutlet var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        Timer.scheduledTimer(timeInterval: INTERVAL, target: self, selector: #selector(timer), userInfo: nil, repeats: true)
+    }
+    
+    @objc func timer() {
+        let currentDate = Date()
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko-KR")
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss EEE"
         
-        imageView.image = imageOn
+        labelCurrentDate.text = "현재 시간: " + formatter.string(from: currentDate)
+        
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        currentTime = formatter.string(from: currentDate)
+        
+        if currentTime != nil && selectedTime != nil {
+            if selectedTime <= currentTime && !isAlertOn {
+                let alertController = UIAlertController(title: "알림", message: "설정된 시간입니다!", preferredStyle: UIAlertController.Style.alert)
+                
+                let alertAction = UIAlertAction(title: "넹!", style: UIAlertAction.Style.default, handler: {
+                    ACTION in self.selectedTime = formatter.string(from: Date() + 60)
+                    self.isAlertOn = false
+                })
+                
+                alertController.addAction(alertAction)
+                present(alertController, animated: true, completion: {
+                    self.isAlertOn = true
+                })
+            }
+        }
     }
 
-    @IBAction func handleOn (_ sender: UIButton) {
-        if(isOn) {
-            let lampOnAlert = UIAlertController(title: "전구를 켤 수 없습니다.", message: "이미 켜진 전구입니다.", preferredStyle: UIAlertController.Style.alert)
-            
-            let onAction = UIAlertAction(title: "넹", style: UIAlertAction.Style.default, handler: nil)
-            
-            lampOnAlert.addAction(onAction)
-            present(lampOnAlert, animated: true, completion: nil)
-        } else {
-            imageView.image = imageOn
-            isOn = true
-        }
-    }
-    
-    @IBAction func handleOff (_ sender: UIButton) {
-        if(isOn) {
-            let lampOffAlert = UIAlertController(title: "전구 끄기", message: "전구를 끄시겠어요?", preferredStyle: UIAlertController.Style.alert)
-            
-            let onAction = UIAlertAction(title: "꺼 죠", style: UIAlertAction.Style.default, handler: {
-                ACTION in self.imageView.image = self.imageOff
-                self.isOn = false
-            })
-            
-            let cancelAction = UIAlertAction(title: "아니용", style: UIAlertAction.Style.destructive, handler: nil)
-            
-            lampOffAlert.addAction(cancelAction)
-            lampOffAlert.addAction(onAction)
-            
-            present(lampOffAlert, animated: true, completion: nil)
-        } else {
-            let lampOffAlert = UIAlertController(title: "전구를 끌 수 없습니다.", message: "이미 꺼진 전구입니다.", preferredStyle: UIAlertController.Style.alert)
-            
-            let onAction = UIAlertAction(title: "넹!", style: UIAlertAction.Style.destructive, handler: nil)
-            
-            lampOffAlert.addAction(onAction)
-            present(lampOffAlert, animated: true, completion: nil)
-        }
-    }
-    
-    @IBAction func handleRemove (_ sender: UIButton) {
-        let lampRemoveAlert = UIAlertController(title: "전구 제거", message: "전구를 제거하시겠어요?", preferredStyle: UIAlertController.Style.alert)
+    @IBAction func handleSelectDate (_ sender: UIDatePicker) {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko-KR")
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss EEE"
         
-        let lampOnAction = UIAlertAction(title: "전구 켜기", style: UIAlertAction.Style.default, handler: {
-            ACTION in self.imageView.image = self.imageOn
-            self.isOn = true
-        })
+        labelSelectedDate.text = "선택 시간: " + formatter.string(from: sender.date)
         
-        let lampOffAction = UIAlertAction(title: "전구 끄기", style: UIAlertAction.Style.default, handler: {
-            ACTION in self.imageView.image = self.imageOff
-            self.isOn = false
-        })
-        
-        let lampRemoveAction = UIAlertAction(title: "전구 제거", style: UIAlertAction.Style.default, handler: {
-            ACTION in self.imageView.image = self.imageRemove
-            self.isOn = false
-        })
-        
-        lampRemoveAlert.addAction(lampOnAction)
-        lampRemoveAlert.addAction(lampOffAction)
-        lampRemoveAlert.addAction(lampRemoveAction)
-        
-        present(lampRemoveAlert, animated: true, completion: nil)
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        selectedTime = formatter.string(from: sender.date)
     }
 }
