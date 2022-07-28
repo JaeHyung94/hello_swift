@@ -16,59 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bY9-gm-hdG">
-                                <rect key="frame" x="16" y="44" width="267" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TZC-7u-y16">
-                                <rect key="frame" x="283" y="44" width="76" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Go"/>
-                                <connections>
-                                    <action selector="handleSubmit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XhT-4u-DCt"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0c-al-ahR">
-                                <rect key="frame" x="20" y="96" width="76" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Stie 1"/>
-                                <connections>
-                                    <action selector="handleSite1Button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8yX-db-Gmq"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwh-mJ-56w">
-                                <rect key="frame" x="277" y="96" width="76" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="File"/>
-                                <connections>
-                                    <action selector="handleFileButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3AR-uC-TYd"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGv-b1-HI7">
-                                <rect key="frame" x="104" y="96" width="76" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Site 2"/>
-                                <connections>
-                                    <action selector="handleSite2Button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BAn-tv-mij"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ptf-CG-jP4">
-                                <rect key="frame" x="193" y="96" width="76" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="HTML"/>
-                                <connections>
-                                    <action selector="handleHTMLButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ilZ-jU-jCN"/>
-                                </connections>
-                            </button>
-                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0EL-O0-bx9">
-                                <rect key="frame" x="16" y="135" width="343" height="590"/>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pk8-eq-2HZ">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
@@ -76,39 +25,8 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XB5-Zd-gaN">
-                                <rect key="frame" x="16" y="734" width="343" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="24V-us-Kib"/>
-                                    <barButtonItem systemItem="stop" id="UKG-39-n6H">
-                                        <connections>
-                                            <action selector="handleCancel:" destination="BYZ-38-t0r" id="k3g-S9-1v9"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="jt4-2b-Xgi"/>
-                                    <barButtonItem systemItem="refresh" id="abV-MX-eE4">
-                                        <connections>
-                                            <action selector="handleRefresh:" destination="BYZ-38-t0r" id="KHJ-wI-yWB"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Bda-M9-YPl"/>
-                                    <barButtonItem systemItem="rewind" id="TYq-Ml-VXJ">
-                                        <connections>
-                                            <action selector="handleGoBack:" destination="BYZ-38-t0r" id="WLY-Lk-cZs"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Lef-YB-yo1"/>
-                                    <barButtonItem systemItem="fastForward" id="BCd-aI-JSw">
-                                        <connections>
-                                            <action selector="handleGoForward:" destination="BYZ-38-t0r" id="eud-bs-Jry"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="JgA-Kx-zxs"/>
-                                </items>
-                            </toolbar>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="AoN-MD-hWt">
-                                <rect key="frame" x="149" y="368" width="76" height="76"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Cnl-Bo-1mC">
+                                <rect key="frame" x="147" y="366" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                         </subviews>
@@ -116,9 +34,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="indicator" destination="AoN-MD-hWt" id="gwK-hC-EJk"/>
-                        <outlet property="urlInput" destination="bY9-gm-hdG" id="3wi-6G-Ndo"/>
-                        <outlet property="webView" destination="0EL-O0-bx9" id="Yqu-cn-c08"/>
+                        <outlet property="indicator" destination="Cnl-Bo-1mC" id="owP-di-YZW"/>
+                        <outlet property="webView" destination="Pk8-eq-2HZ" id="51l-dd-ocI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
