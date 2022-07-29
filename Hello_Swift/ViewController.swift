@@ -10,6 +10,7 @@ import UIKit
 protocol EditDeligate {
     func didMessageEditDone(_ controller: EditViewController, message: String)
     func didImageOnOffDone(_ controller: EditViewController, isOn: Bool)
+    func didImageSizeChangeDone(_ controller: EditViewController, isBig: Bool)
 }
 
 class ViewController: UIViewController, EditDeligate{
@@ -19,6 +20,8 @@ class ViewController: UIViewController, EditDeligate{
     let imageOn = UIImage(named: "lamp_on.png")
     let imageOff = UIImage(named: "lamp_off.png")
     var isOn = true
+    var isBig = false
+    var orgBig = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +41,7 @@ class ViewController: UIViewController, EditDeligate{
         
         editViewController.textMessage = messageInput.text!
         editViewController.isOn = isOn
+        editViewController.isBig = orgBig
         editViewController.deligate = self
         
     }
@@ -53,6 +57,38 @@ class ViewController: UIViewController, EditDeligate{
         } else {
             imageView.image = imageOff
             self.isOn = false
+        }
+    }
+    
+    func didImageSizeChangeDone(_ controller: EditViewController, isBig: Bool) {
+        let scale = 2.0
+        var afterWidth: CGFloat
+        var afterHeight: CGFloat
+        
+        if isBig {
+            if orgBig {
+                
+            } else {
+                self.isBig = false
+                self.orgBig = true
+                
+                afterWidth = imageView.frame.width * scale
+                afterHeight = imageView.frame.height * scale
+                
+                imageView.frame.size = CGSize(width: afterWidth, height: afterHeight)
+            }
+        } else {
+            if orgBig {
+                self.isBig = true
+                self.orgBig = false
+                
+                afterWidth = imageView.frame.width / scale
+                afterHeight = imageView.frame.height / scale
+                
+                imageView.frame.size = CGSize(width: afterWidth, height: afterHeight)
+            } else {
+                
+            }
         }
     }
 }

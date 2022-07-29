@@ -106,6 +106,15 @@
                                     <action selector="handleOnOfSwitch:" destination="ogS-lH-SYg" eventType="valueChanged" id="Ngl-Pj-fR9"/>
                                 </connections>
                             </switch>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fab-3U-Rgv">
+                                <rect key="frame" x="58" y="184" width="97" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="확대"/>
+                                <connections>
+                                    <action selector="handleSizeChange:" destination="ogS-lH-SYg" eventType="touchUpInside" id="BJZ-2j-Omf"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="켜기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00j-gQ-qjZ">
                                 <rect key="frame" x="168" y="184" width="114" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -123,6 +132,7 @@
                         <outlet property="labelSwitch" destination="00j-gQ-qjZ" id="yz8-nB-Uo4"/>
                         <outlet property="messageInput" destination="G1E-Re-HSU" id="3Bo-3Y-Z7v"/>
                         <outlet property="onOffSwitch" destination="aIs-6v-5wq" id="JHp-7F-MXK"/>
+                        <outlet property="sizeButton" destination="fab-3U-Rgv" id="KoE-f1-e6v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hri-bz-fg8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
