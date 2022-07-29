@@ -16,12 +16,8 @@
 		40C20E8D288FA085000A4BD7 /* Hello_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20E8C288FA085000A4BD7 /* Hello_SwiftTests.swift */; };
 		40C20E97288FA086000A4BD7 /* Hello_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20E96288FA086000A4BD7 /* Hello_SwiftUITests.swift */; };
 		40C20E99288FA086000A4BD7 /* Hello_SwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20E98288FA086000A4BD7 /* Hello_SwiftUITestsLaunchTests.swift */; };
-		40C20EF22893888C000A4BD7 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20EF12893888C000A4BD7 /* TableViewController.swift */; };
-		40C20EF4289388E8000A4BD7 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20EF3289388E8000A4BD7 /* AddViewController.swift */; };
-		40C20EF6289388FA000A4BD7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20EF5289388FA000A4BD7 /* DetailViewController.swift */; };
-		40C20EFA28938A4A000A4BD7 /* cart.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C20EF728938A4A000A4BD7 /* cart.png */; };
-		40C20EFB28938A4A000A4BD7 /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C20EF828938A4A000A4BD7 /* pencil.png */; };
-		40C20EFC28938A4A000A4BD7 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C20EF928938A4A000A4BD7 /* clock.png */; };
+		40C20EFE289399B1000A4BD7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20EFD289399B1000A4BD7 /* ViewController.swift */; };
+		40C20F0028939A4A000A4BD7 /* 01.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C20EFF28939A49000A4BD7 /* 01.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,12 +51,8 @@
 		40C20E92288FA086000A4BD7 /* Hello_SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Hello_SwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C20E96288FA086000A4BD7 /* Hello_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hello_SwiftUITests.swift; sourceTree = "<group>"; };
 		40C20E98288FA086000A4BD7 /* Hello_SwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hello_SwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		40C20EF12893888C000A4BD7 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		40C20EF3289388E8000A4BD7 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
-		40C20EF5289388FA000A4BD7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		40C20EF728938A4A000A4BD7 /* cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cart.png; sourceTree = "<group>"; };
-		40C20EF828938A4A000A4BD7 /* pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil.png; sourceTree = "<group>"; };
-		40C20EF928938A4A000A4BD7 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
+		40C20EFD289399B1000A4BD7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		40C20EFF28939A49000A4BD7 /* 01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 01.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,14 +103,10 @@
 		40C20E71288FA083000A4BD7 /* Hello_Swift */ = {
 			isa = PBXGroup;
 			children = (
-				40C20EF728938A4A000A4BD7 /* cart.png */,
-				40C20EF928938A4A000A4BD7 /* clock.png */,
-				40C20EF828938A4A000A4BD7 /* pencil.png */,
+				40C20EFF28939A49000A4BD7 /* 01.png */,
 				40C20E72288FA083000A4BD7 /* AppDelegate.swift */,
 				40C20E74288FA083000A4BD7 /* SceneDelegate.swift */,
-				40C20EF12893888C000A4BD7 /* TableViewController.swift */,
-				40C20EF3289388E8000A4BD7 /* AddViewController.swift */,
-				40C20EF5289388FA000A4BD7 /* DetailViewController.swift */,
+				40C20EFD289399B1000A4BD7 /* ViewController.swift */,
 				40C20E78288FA083000A4BD7 /* Main.storyboard */,
 				40C20E7E288FA085000A4BD7 /* Assets.xcassets */,
 				40C20E80288FA085000A4BD7 /* LaunchScreen.storyboard */,
@@ -249,11 +237,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40C20EFC28938A4A000A4BD7 /* clock.png in Resources */,
-				40C20EFB28938A4A000A4BD7 /* pencil.png in Resources */,
 				40C20E82288FA085000A4BD7 /* LaunchScreen.storyboard in Resources */,
-				40C20EFA28938A4A000A4BD7 /* cart.png in Resources */,
 				40C20E7F288FA085000A4BD7 /* Assets.xcassets in Resources */,
+				40C20F0028939A4A000A4BD7 /* 01.png in Resources */,
 				40C20E7A288FA083000A4BD7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,12 +265,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40C20EF4289388E8000A4BD7 /* AddViewController.swift in Sources */,
 				40C20E7D288FA083000A4BD7 /* Hello_Swift.xcdatamodeld in Sources */,
 				40C20E73288FA083000A4BD7 /* AppDelegate.swift in Sources */,
-				40C20EF6289388FA000A4BD7 /* DetailViewController.swift in Sources */,
+				40C20EFE289399B1000A4BD7 /* ViewController.swift in Sources */,
 				40C20E75288FA083000A4BD7 /* SceneDelegate.swift in Sources */,
-				40C20EF22893888C000A4BD7 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

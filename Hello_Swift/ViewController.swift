@@ -1,5 +1,5 @@
 //
-//  DetailViewController.swift
+//  ViewController.swift
 //  Hello_Swift
 //
 //  Created by 박재형 on 2022/07/29.
@@ -7,20 +7,12 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
-    @IBOutlet var labelTaskName: UILabel!
-    
-    var recievedItem = ""
-    
+class ViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        labelTaskName.text = recievedItem
-    }
-    
-    func receiveItem(_ item: String) {
-        recievedItem = item
     }
     
 
