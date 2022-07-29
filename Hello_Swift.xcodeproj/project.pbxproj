@@ -19,10 +19,7 @@
 		40C20E99288FA086000A4BD7 /* Hello_SwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20E98288FA086000A4BD7 /* Hello_SwiftUITestsLaunchTests.swift */; };
 		40C20EE12892B5E7000A4BD7 /* lamp_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C20EDF2892B5E7000A4BD7 /* lamp_off.png */; };
 		40C20EE22892B5E7000A4BD7 /* lamp_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C20EE02892B5E7000A4BD7 /* lamp_on.png */; };
-		40C20EE82892B6F7000A4BD7 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20EE72892B6F7000A4BD7 /* ImageViewController.swift */; };
-		40C20EEA2892B7B7000A4BD7 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20EE92892B7B6000A4BD7 /* DateViewController.swift */; };
-		40C20EEC2892C74C000A4BD7 /* File.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C20EEB2892C74C000A4BD7 /* File.png */; };
-		40C20EEE2892C8E2000A4BD7 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20EED2892C8E1000A4BD7 /* PickerViewController.swift */; };
+		40C20EF02892DD18000A4BD7 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C20EEF2892DD18000A4BD7 /* EditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,10 +56,7 @@
 		40C20E98288FA086000A4BD7 /* Hello_SwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hello_SwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		40C20EDF2892B5E7000A4BD7 /* lamp_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lamp_off.png; sourceTree = "<group>"; };
 		40C20EE02892B5E7000A4BD7 /* lamp_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lamp_on.png; sourceTree = "<group>"; };
-		40C20EE72892B6F7000A4BD7 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
-		40C20EE92892B7B6000A4BD7 /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
-		40C20EEB2892C74C000A4BD7 /* File.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = File.png; sourceTree = "<group>"; };
-		40C20EED2892C8E1000A4BD7 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
+		40C20EEF2892DD18000A4BD7 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,13 +109,10 @@
 			children = (
 				40C20EDF2892B5E7000A4BD7 /* lamp_off.png */,
 				40C20EE02892B5E7000A4BD7 /* lamp_on.png */,
-				40C20EEB2892C74C000A4BD7 /* File.png */,
 				40C20E72288FA083000A4BD7 /* AppDelegate.swift */,
 				40C20E74288FA083000A4BD7 /* SceneDelegate.swift */,
 				40C20E76288FA083000A4BD7 /* ViewController.swift */,
-				40C20EE72892B6F7000A4BD7 /* ImageViewController.swift */,
-				40C20EE92892B7B6000A4BD7 /* DateViewController.swift */,
-				40C20EED2892C8E1000A4BD7 /* PickerViewController.swift */,
+				40C20EEF2892DD18000A4BD7 /* EditViewController.swift */,
 				40C20E78288FA083000A4BD7 /* Main.storyboard */,
 				40C20E7E288FA085000A4BD7 /* Assets.xcassets */,
 				40C20E80288FA085000A4BD7 /* LaunchScreen.storyboard */,
@@ -255,7 +246,6 @@
 				40C20E82288FA085000A4BD7 /* LaunchScreen.storyboard in Resources */,
 				40C20E7F288FA085000A4BD7 /* Assets.xcassets in Resources */,
 				40C20EE22892B5E7000A4BD7 /* lamp_on.png in Resources */,
-				40C20EEC2892C74C000A4BD7 /* File.png in Resources */,
 				40C20E7A288FA083000A4BD7 /* Main.storyboard in Resources */,
 				40C20EE12892B5E7000A4BD7 /* lamp_off.png in Resources */,
 			);
@@ -282,12 +272,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40C20EF02892DD18000A4BD7 /* EditViewController.swift in Sources */,
 				40C20E7D288FA083000A4BD7 /* Hello_Swift.xcdatamodeld in Sources */,
 				40C20E77288FA083000A4BD7 /* ViewController.swift in Sources */,
-				40C20EE82892B6F7000A4BD7 /* ImageViewController.swift in Sources */,
 				40C20E73288FA083000A4BD7 /* AppDelegate.swift in Sources */,
-				40C20EEA2892B7B7000A4BD7 /* DateViewController.swift in Sources */,
-				40C20EEE2892C8E2000A4BD7 /* PickerViewController.swift in Sources */,
 				40C20E75288FA083000A4BD7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
