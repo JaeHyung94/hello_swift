@@ -6,15 +6,15 @@
 //
 
 import UIKit
-import MobileCoreServices
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var imageView1: UIImageView!
+    @IBOutlet var imageView2: UIImageView!
+    @IBOutlet var imageView3: UIImageView!
     
-    let imagePicker: UIImagePickerController! = UIImagePickerController()
-    var captureImage: UIImage!
-    var videoURL: URL!
-    var flagImageSave = false
+    let imagePicker = UIImagePickerController()
+    var numImage = 0
+    var capturedImage: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +22,13 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func handleTakePhoto(_ sender: UIButton) {
+    @IBAction func handleCamera(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            flagImageSave = true
+            if numImage < 3 {
+                numImage += 1
+            } else {
+                numImage = 0
+            }
             
             imagePicker.delegate = self
             imagePicker.sourceType = .camera
@@ -32,86 +36,49 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             imagePicker.allowsEditing = false
             
             present(imagePicker, animated: true, completion: nil)
-        } else {
-            customAlert(title: "카메라에 접근할 수 없습니다.", message: "앱이 카메라에 접근할 수 없습니다.")
         }
     }
     
-    @IBAction func handleTakeVideo(_ sender: UIButton) {
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            flagImageSave = true
-            
-            imagePicker.delegate = self
-            imagePicker.sourceType = .camera
-            imagePicker.mediaTypes = ["public.movie"]
-            imagePicker.allowsEditing = false
-            
-            present(imagePicker, animated: true, completion: nil)
-        } else {
-            customAlert(title: "카메라에 접근할 수 없습니다.", message: "카메라에 접근할 수 없습니다.")
-        }
-    }
-    
-    @IBAction func handleOpenPhoto(_ sender: UIButton) {
+    @IBAction func handleLibrary(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            flagImageSave = false
+            if numImage < 3 {
+                numImage += 1
+            } else {
+                numImage = 1
+            }
             
             imagePicker.delegate = self
             imagePicker.sourceType = .photoLibrary
             imagePicker.mediaTypes = ["public.image"]
-            imagePicker.allowsEditing = true
-            
-            present(imagePicker, animated: true, completion: nil)
-        } else {
-            customAlert(title: "앨범을 열 수 없습니다.", message: "앨범에 접근할 수 없습니다.")
-        }
-    }
-    
-    @IBAction func handleOpenVideo(_ sender: UIButton) {
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            flagImageSave = false
-            
-            imagePicker.delegate = self
-            imagePicker.sourceType = .photoLibrary
-            imagePicker.mediaTypes = ["public.movie"]
             imagePicker.allowsEditing = false
             
             present(imagePicker, animated: true, completion: nil)
-        } else {
-            customAlert(title: "앨범을 열 수 없습니다.", message: "앨범에 접근할 수 없습니다.")
         }
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let mediaType = info[UIImagePickerController.InfoKey.mediaType] as! NSString
-        
-        if mediaType.isEqual(to: "public.image" as String) {
-            captureImage = (info[UIImagePickerController.InfoKey.originalImage] as! UIImage)
-            
-            if flagImageSave {
-                UIImageWriteToSavedPhotosAlbum(captureImage, self, nil, nil)
-            }
-            
-            imageView.image = captureImage
-        } else if mediaType.isEqual(to: "public.movie" as String) {
-            if flagImageSave {
-                videoURL = (info[UIImagePickerController.InfoKey.mediaURL] as! URL)
-                UISaveVideoAtPathToSavedPhotosAlbum(videoURL.relativePath, self, nil, nil)
-            }
-        }
-        
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    func customAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        let action = UIAlertAction(title: "넹", style: UIAlertAction.Style.default, handler: nil)
-        
-        alert.addAction(action)
-        self.present(alert, animated: true)
+    @IBAction func handleReset(_ sender: UIButton) {
+        imageView1.image = nil
+        imageView2.image = nil
+        imageView3.image = nil
+        numImage = 0
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        numImage -= 1
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        capturedImage = (info[UIImagePickerController.InfoKey.originalImage] as! UIImage)
+        
+        if numImage == 1 {
+            imageView1.image = capturedImage
+        } else if numImage == 2 {
+            imageView2.image = capturedImage
+        } else if numImage == 3 {
+            imageView3.image = capturedImage
+        }
+        
         self.dismiss(animated: true, completion: nil)
     }
 }
