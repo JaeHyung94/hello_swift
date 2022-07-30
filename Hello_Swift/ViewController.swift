@@ -8,43 +8,34 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var labelMessage: UILabel!
+    @IBOutlet var labelTapCount: UILabel!
+    @IBOutlet var labelTouchCount: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        drawFlower()
     }
     
-    func drawFlower() {
-        UIGraphicsBeginImageContext(imageView.frame.size)
-        let context = UIGraphicsGetCurrentContext()!
-        
-        context.setLineWidth(2.0)
-        context.setStrokeColor(UIColor.green.cgColor)
-        context.setFillColor(UIColor.green.cgColor)
-        
-        context.move(to: CGPoint(x: 170, y: 200))
-        context.addLine(to: CGPoint(x: 200, y: 450))
-        context.addLine(to: CGPoint(x: 140, y: 450))
-        context.addLine(to: CGPoint(x: 170, y: 200))
-        context.fillPath()
-        
-        context.strokePath()
-        
-        context.setLineWidth(2.0)
-        context.setStrokeColor(UIColor.systemPink.cgColor)
-        
-        context.addEllipse(in: CGRect(x: 120, y: 150, width: 100, height: 100))
-        context.addEllipse(in: CGRect(x: 170, y: 150, width: 100, height: 100))
-        context.addEllipse(in: CGRect(x: 70, y: 150, width: 100, height: 100))
-        context.addEllipse(in: CGRect(x: 120, y: 100, width: 100, height: 100))
-        context.addEllipse(in: CGRect(x: 120, y: 200, width: 100, height: 100))
-        
-        context.strokePath()
-        
-        imageView.image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first! as UITouch
+        labelMessage.text = "Touch Started"
+        labelTapCount.text = String(touch.tapCount)
+        labelTouchCount.text = String(touches.count)
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first! as UITouch
+        labelMessage.text = "Touch Moved"
+        labelTapCount.text = String(touch.tapCount)
+        labelTouchCount.text = String(touches.count)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first! as UITouch
+        labelMessage.text = "Touch Finished"
+        labelTapCount.text = String(touch.tapCount)
+        labelTouchCount.text = String(touches.count)
     }
 }
