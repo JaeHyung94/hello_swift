@@ -8,23 +8,19 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet var pinchLabel: UILabel!
-    
-    var initialFontSize: CGFloat!
+    @IBOutlet var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(_:)))
+        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(handleImagePinch(_:)))
         self.view.addGestureRecognizer(pinch)
     }
     
-    @objc func handlePinch(_ gesture: UIPinchGestureRecognizer) {
-        if gesture.state == UIGestureRecognizer.State.began {
-            initialFontSize = pinchLabel.font.pointSize
-        } else {
-            pinchLabel.font = pinchLabel.font.withSize(initialFontSize * gesture.scale)
-        }
+    @objc func handleImagePinch(_ pinch: UIPinchGestureRecognizer) {
+        imageView.transform = imageView.transform.scaledBy(x: pinch.scale, y: pinch.scale)
+        pinch.scale = 1
+        
     }
 }

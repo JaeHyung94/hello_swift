@@ -16,24 +16,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pinch!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zS-ln-Yfi">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="06.png" translatesAutoresizingMaskIntoConstraints="NO" id="GKb-xE-xyG">
                                 <rect key="frame" x="16" y="44" width="358" height="766"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="prd-VL-aGX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="0zS-ln-Yfi" firstAttribute="leading" secondItem="prd-VL-aGX" secondAttribute="leading" constant="16" id="ZOQ-iJ-6oZ"/>
-                            <constraint firstItem="0zS-ln-Yfi" firstAttribute="top" secondItem="prd-VL-aGX" secondAttribute="top" id="iBC-85-Rx6"/>
-                            <constraint firstItem="prd-VL-aGX" firstAttribute="trailing" secondItem="0zS-ln-Yfi" secondAttribute="trailing" constant="16" id="qtx-ec-vAQ"/>
-                            <constraint firstItem="prd-VL-aGX" firstAttribute="bottom" secondItem="0zS-ln-Yfi" secondAttribute="bottom" id="xv2-ZY-HfK"/>
+                            <constraint firstItem="GKb-xE-xyG" firstAttribute="top" secondItem="prd-VL-aGX" secondAttribute="top" id="3vL-4m-qNp"/>
+                            <constraint firstItem="prd-VL-aGX" firstAttribute="bottom" secondItem="GKb-xE-xyG" secondAttribute="bottom" id="LKJ-Tt-g1T"/>
+                            <constraint firstItem="prd-VL-aGX" firstAttribute="trailing" secondItem="GKb-xE-xyG" secondAttribute="trailing" constant="16" id="QWB-6y-Si8"/>
+                            <constraint firstItem="GKb-xE-xyG" firstAttribute="leading" secondItem="prd-VL-aGX" secondAttribute="leading" constant="16" id="mbC-FF-Kho"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="pinchLabel" destination="0zS-ln-Yfi" id="xOI-C7-2Gp"/>
+                        <outlet property="imageView" destination="GKb-xE-xyG" id="MRk-Sp-Ryf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cqC-z4-Zhm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -42,6 +39,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="06.png" width="1686" height="2448"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
