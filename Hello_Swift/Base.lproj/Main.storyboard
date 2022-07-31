@@ -16,31 +16,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AfV-it-eZ4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pinch!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zS-ln-Yfi">
                                 <rect key="frame" x="16" y="44" width="358" height="766"/>
-                            </imageView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="F8B-I2-SUU">
-                                <rect key="frame" x="16" y="755" width="358" height="25"/>
-                                <connections>
-                                    <action selector="handlePaging:" destination="m7T-k6-hin" eventType="valueChanged" id="LPT-1F-ZDr"/>
-                                </connections>
-                            </pageControl>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="prd-VL-aGX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="prd-VL-aGX" firstAttribute="bottom" secondItem="AfV-it-eZ4" secondAttribute="bottom" id="4ex-5Y-wZl"/>
-                            <constraint firstItem="prd-VL-aGX" firstAttribute="trailing" secondItem="F8B-I2-SUU" secondAttribute="trailing" constant="16" id="GMb-KO-bNd"/>
-                            <constraint firstItem="prd-VL-aGX" firstAttribute="trailing" secondItem="AfV-it-eZ4" secondAttribute="trailing" constant="16" id="L4L-6E-Z00"/>
-                            <constraint firstItem="prd-VL-aGX" firstAttribute="bottom" secondItem="F8B-I2-SUU" secondAttribute="bottom" constant="30" id="Vsi-AQ-r72"/>
-                            <constraint firstItem="F8B-I2-SUU" firstAttribute="leading" secondItem="prd-VL-aGX" secondAttribute="leading" constant="16" id="fiL-af-D02"/>
-                            <constraint firstItem="AfV-it-eZ4" firstAttribute="leading" secondItem="prd-VL-aGX" secondAttribute="leading" constant="16" id="jia-4q-JPY"/>
-                            <constraint firstItem="AfV-it-eZ4" firstAttribute="top" secondItem="prd-VL-aGX" secondAttribute="top" id="xbt-f4-teZ"/>
+                            <constraint firstItem="0zS-ln-Yfi" firstAttribute="leading" secondItem="prd-VL-aGX" secondAttribute="leading" constant="16" id="ZOQ-iJ-6oZ"/>
+                            <constraint firstItem="0zS-ln-Yfi" firstAttribute="top" secondItem="prd-VL-aGX" secondAttribute="top" id="iBC-85-Rx6"/>
+                            <constraint firstItem="prd-VL-aGX" firstAttribute="trailing" secondItem="0zS-ln-Yfi" secondAttribute="trailing" constant="16" id="qtx-ec-vAQ"/>
+                            <constraint firstItem="prd-VL-aGX" firstAttribute="bottom" secondItem="0zS-ln-Yfi" secondAttribute="bottom" id="xv2-ZY-HfK"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="AfV-it-eZ4" id="NbX-9K-Lh2"/>
-                        <outlet property="pageControl" destination="F8B-I2-SUU" id="zH5-Xx-aGg"/>
+                        <outlet property="pinchLabel" destination="0zS-ln-Yfi" id="xOI-C7-2Gp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cqC-z4-Zhm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
