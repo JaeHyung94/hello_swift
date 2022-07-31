@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet var arrowRightImage: UIImageView!
     @IBOutlet var arrowDownImage: UIImageView!
     
+    let NUMOFTOUCH = 2
     var arrowUp = [UIImage]()
     var arrowLeft = [UIImage]()
     var arrowRight = [UIImage]()
@@ -58,6 +59,26 @@ class ViewController: UIViewController {
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(_:)))
         swipeUp.direction = UISwipeGestureRecognizer.Direction.down
         self.view.addGestureRecognizer(swipeDown)
+        
+        let multiSwipeUp = UISwipeGestureRecognizer(target: self, action: #selector(respondToMultiSwipeGesture(_:)))
+        multiSwipeUp.direction = UISwipeGestureRecognizer.Direction.up
+        multiSwipeUp.numberOfTouchesRequired = NUMOFTOUCH
+        self.view.addGestureRecognizer(multiSwipeUp)
+        
+        let multiSwipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(respondToMultiSwipeGesture(_:)))
+        multiSwipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+        multiSwipeLeft.numberOfTouchesRequired = NUMOFTOUCH
+        self.view.addGestureRecognizer(multiSwipeLeft)
+        
+        let multiSwipeDown = UISwipeGestureRecognizer(target: self, action: #selector(respondToMultiSwipeGesture(_:)))
+        multiSwipeDown.direction = UISwipeGestureRecognizer.Direction.down
+        multiSwipeDown.numberOfTouchesRequired = NUMOFTOUCH
+        self.view.addGestureRecognizer(multiSwipeDown)
+        
+        let multiSwipeRight = UISwipeGestureRecognizer(target: self, action: #selector(respondToMultiSwipeGesture(_:)))
+        multiSwipeRight.direction = UISwipeGestureRecognizer.Direction.right
+        multiSwipeRight.numberOfTouchesRequired = NUMOFTOUCH
+        self.view.addGestureRecognizer(multiSwipeRight)
     }
     
     
@@ -82,6 +103,32 @@ class ViewController: UIViewController {
             case UISwipeGestureRecognizer.Direction.down:
                 print(4)
                 arrowDownImage.image = arrowDown[1]
+            default:
+                break
+            }
+        }
+    }
+    
+    @objc func respondToMultiSwipeGesture(_ gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            print(swipeGesture)
+            arrowUpImage.image = arrowUp[0]
+            arrowLeftImage.image = arrowLeft[0]
+            arrowRightImage.image = arrowRight[0]
+            arrowDownImage.image = arrowDown[0]
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizer.Direction.up:
+                print(1)
+                arrowUpImage.image = arrowUp[2]
+            case UISwipeGestureRecognizer.Direction.left:
+                print(2)
+                arrowLeftImage.image = arrowLeft[2]
+            case UISwipeGestureRecognizer.Direction.right:
+                print(3)
+                arrowRightImage.image = arrowRight[2]
+            case UISwipeGestureRecognizer.Direction.down:
+                print(4)
+                arrowDownImage.image = arrowDown[2]
             default:
                 break
             }
