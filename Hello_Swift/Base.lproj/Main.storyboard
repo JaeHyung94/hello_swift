@@ -16,99 +16,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jlh-KL-Gko">
-                                <rect key="frame" x="16" y="44" width="358" height="766"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Rpz-GO-orF">
+                                <rect key="frame" x="16" y="314" width="358" height="216"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ejC-4k-CXE">
-                                        <rect key="frame" x="0.0" y="0.0" width="358" height="40"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24W-Qe-Ths">
-                                                <rect key="frame" x="0.0" y="0.0" width="66.333333333333329" height="40"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="검정색"/>
-                                                <connections>
-                                                    <action selector="handleColorChange:" destination="m7T-k6-hin" eventType="touchUpInside" id="UgJ-vU-z9i"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmF-wa-FH7">
-                                                <rect key="frame" x="66.333333333333329" y="0.0" width="65.999999999999986" height="40"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="빨간색"/>
-                                                <connections>
-                                                    <action selector="handleColorChange:" destination="m7T-k6-hin" eventType="touchUpInside" id="xK3-wz-QUK"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGy-lo-n1E">
-                                                <rect key="frame" x="132.33333333333334" y="0.0" width="51" height="40"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="녹색"/>
-                                                <connections>
-                                                    <action selector="handleColorChange:" destination="m7T-k6-hin" eventType="touchUpInside" id="GYN-78-1lh"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LgP-it-o9d">
-                                                <rect key="frame" x="183.33333333333334" y="0.0" width="66" height="40"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="파란색"/>
-                                                <connections>
-                                                    <action selector="handleColorChange:" destination="m7T-k6-hin" eventType="touchUpInside" id="rKY-jZ-MaC"/>
-                                                </connections>
-                                            </button>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="KNv-4Y-4UW">
-                                                <rect key="frame" x="249.33333333333329" y="0.0" width="108.66666666666666" height="40"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="두께" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Sw-IL-uwx">
-                                                        <rect key="frame" x="0.0" y="0.0" width="54.333333333333336" height="40"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XI3-yS-ZmW">
-                                                        <rect key="frame" x="54.333333333333371" y="0.0" width="54.333333333333343" height="40"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <action selector="txtDidEndOnExit:" destination="m7T-k6-hin" eventType="editingDidEnd" id="9O9-NN-BCJ"/>
-                                                            <action selector="txtEditChange:" destination="m7T-k6-hin" eventType="editingDidEnd" id="6e5-j3-G4O"/>
-                                                            <action selector="txtTouchDown:" destination="m7T-k6-hin" eventType="editingDidEnd" id="ZlF-y4-aCl"/>
-                                                        </connections>
-                                                    </textField>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-up-black.png" translatesAutoresizingMaskIntoConstraints="NO" id="yrR-nR-0vB">
+                                        <rect key="frame" x="0.0" y="0.0" width="358" height="72"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="bmj-Vs-SqV"/>
+                                            <constraint firstAttribute="height" constant="72" id="uFF-V5-cyk"/>
                                         </constraints>
-                                    </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VDB-Mw-olD">
-                                        <rect key="frame" x="0.0" y="40" width="358" height="686"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58f-UN-xKi">
-                                        <rect key="frame" x="0.0" y="726" width="358" height="40"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Zle-wD-fap">
+                                        <rect key="frame" x="0.0" y="72" width="358" height="72"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-left-black.png" translatesAutoresizingMaskIntoConstraints="NO" id="aV1-W7-vPp">
+                                                <rect key="frame" x="0.0" y="0.0" width="179" height="72"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="72" id="S5W-zr-lvU"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-right-black.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZqE-dU-jOw">
+                                                <rect key="frame" x="179" y="0.0" width="179" height="72"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="72" id="Enm-2M-MrP"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-down-black.png" translatesAutoresizingMaskIntoConstraints="NO" id="AwA-7n-AOq">
+                                        <rect key="frame" x="0.0" y="144" width="358" height="72"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="QRg-sA-slT"/>
+                                            <constraint firstAttribute="height" constant="72" id="8fK-B8-FLf"/>
                                         </constraints>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Clear"/>
-                                        <connections>
-                                            <action selector="handleClear:" destination="m7T-k6-hin" eventType="touchUpInside" id="KIT-Nv-elC"/>
-                                        </connections>
-                                    </button>
+                                    </imageView>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="prd-VL-aGX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="prd-VL-aGX" firstAttribute="trailing" secondItem="Jlh-KL-Gko" secondAttribute="trailing" constant="16" id="4l8-qe-8U9"/>
-                            <constraint firstItem="Jlh-KL-Gko" firstAttribute="leading" secondItem="prd-VL-aGX" secondAttribute="leading" constant="16" id="8xa-Ob-27q"/>
-                            <constraint firstItem="prd-VL-aGX" firstAttribute="bottom" secondItem="Jlh-KL-Gko" secondAttribute="bottom" id="MG1-MI-n4r"/>
-                            <constraint firstItem="Jlh-KL-Gko" firstAttribute="top" secondItem="prd-VL-aGX" secondAttribute="top" id="gNL-Ol-Mcq"/>
+                            <constraint firstItem="Rpz-GO-orF" firstAttribute="leading" secondItem="prd-VL-aGX" secondAttribute="leading" constant="16" id="7EA-JU-nJC"/>
+                            <constraint firstItem="prd-VL-aGX" firstAttribute="trailing" secondItem="Rpz-GO-orF" secondAttribute="trailing" constant="16" id="7Sg-7P-BzZ"/>
+                            <constraint firstItem="Rpz-GO-orF" firstAttribute="centerY" secondItem="wov-Zk-jCk" secondAttribute="centerY" id="bv8-ci-Hhl"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="VDB-Mw-olD" id="7x1-N2-ct3"/>
-                        <outlet property="widthInput" destination="XI3-yS-ZmW" id="qAQ-fk-QlE"/>
+                        <outlet property="arrowDownImage" destination="AwA-7n-AOq" id="0ON-EO-xq6"/>
+                        <outlet property="arrowLeftImage" destination="aV1-W7-vPp" id="gvm-H2-Zoo"/>
+                        <outlet property="arrowRightImage" destination="ZqE-dU-jOw" id="vhK-39-EDc"/>
+                        <outlet property="arrowUpImage" destination="yrR-nR-0vB" id="ELR-f6-hxT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cqC-z4-Zhm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -117,6 +72,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow-down-black.png" width="209" height="218"/>
+        <image name="arrow-left-black.png" width="218" height="209"/>
+        <image name="arrow-right-black.png" width="218" height="209"/>
+        <image name="arrow-up-black.png" width="209" height="218"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

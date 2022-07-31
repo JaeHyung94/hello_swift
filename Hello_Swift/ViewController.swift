@@ -8,106 +8,83 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet var imageView: UIImageView!
-    @IBOutlet var widthInput: UITextField!
+    @IBOutlet var arrowUpImage: UIImageView!
+    @IBOutlet var arrowLeftImage: UIImageView!
+    @IBOutlet var arrowRightImage: UIImageView!
+    @IBOutlet var arrowDownImage: UIImageView!
     
-    var lineColor: CGColor!
-    var lineWidth: CGFloat! = 2.0
-    var lastPoint: CGPoint!
+    var arrowUp = [UIImage]()
+    var arrowLeft = [UIImage]()
+    var arrowRight = [UIImage]()
+    var arrowDown = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        lineColor = UIColor.black.cgColor
-        widthInput.text = String(Int(lineWidth))
+        arrowUp.append(UIImage(named: "arrow-up-black.png")!)
+        arrowUp.append(UIImage(named: "arrow-up-red.png")!)
+        arrowUp.append(UIImage(named: "arrow-up-green.png")!)
+        
+        arrowLeft.append(UIImage(named: "arrow-left-black.png")!)
+        arrowLeft.append(UIImage(named: "arrow-left-red.png")!)
+        arrowLeft.append(UIImage(named: "arrow-left-green.png")!)
+        
+        arrowRight.append(UIImage(named: "arrow-right-black.png")!)
+        arrowRight.append(UIImage(named: "arrow-right-red.png")!)
+        arrowRight.append(UIImage(named: "arrow-right-green.png")!)
+        
+        arrowDown.append(UIImage(named: "arrow-down-black.png")!)
+        arrowDown.append(UIImage(named: "arrow-down-red.png")!)
+        arrowDown.append(UIImage(named: "arrow-down-green.png")!)
+        
+        arrowUpImage.image = arrowUp[0]
+        arrowLeftImage.image = arrowLeft[0]
+        arrowRightImage.image = arrowRight[0]
+        arrowDownImage.image = arrowDown[0]
+        
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(_:)))
+        swipeUp.direction = UISwipeGestureRecognizer.Direction.up
+        self.view.addGestureRecognizer(swipeUp)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(_:)))
+        swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(_:)))
+        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(_:)))
+        swipeUp.direction = UISwipeGestureRecognizer.Direction.down
+        self.view.addGestureRecognizer(swipeDown)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch = touches.first! as UITouch
-        
-        lastPoint = touch.location(in: imageView)
-    }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        UIGraphicsBeginImageContext(imageView.frame.size)
-        
-        let context = UIGraphicsGetCurrentContext()!
-        context.setLineWidth(lineWidth)
-        context.setLineCap(.round)
-        context.setStrokeColor(lineColor)
-        
-        let touch = touches.first! as UITouch
-        let currentPoint = touch.location(in: imageView)
-        
-        imageView.image?.draw(in: CGRect(x: 0, y: 0, width: imageView.frame.width, height: imageView.frame.height))
-        
-        context.move(to: CGPoint(x: lastPoint.x, y: lastPoint.y))
-        context.addLine(to: CGPoint(x: currentPoint.x, y: currentPoint.y))
-        context.strokePath()
-        
-        imageView.image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        lastPoint = currentPoint
-    }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        UIGraphicsBeginImageContext(imageView.frame.size)
-        
-        let context = UIGraphicsGetCurrentContext()!
-        context.setLineWidth(lineWidth)
-        context.setLineCap(.round)
-        context.setStrokeColor(lineColor)
-        
-        imageView.image?.draw(in: CGRect(x: 0, y: 0, width: imageView.frame.width, height: imageView.frame.height))
-        
-        context.move(to: CGPoint(x: lastPoint.x, y: lastPoint.y))
-        context.addLine(to: CGPoint(x: lastPoint.x, y: lastPoint.y))
-        context.strokePath()
-        
-        imageView.image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-    }
-    
-    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        if motion == .motionShake {
-            imageView.image = nil
+    @objc func respondToSwipeGesture(_ gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            print(swipeGesture)
+            arrowUpImage.image = arrowUp[0]
+            arrowLeftImage.image = arrowLeft[0]
+            arrowRightImage.image = arrowRight[0]
+            arrowDownImage.image = arrowDown[0]
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizer.Direction.up:
+                print(1)
+                arrowUpImage.image = arrowUp[1]
+            case UISwipeGestureRecognizer.Direction.left:
+                print(2)
+                arrowLeftImage.image = arrowLeft[1]
+            case UISwipeGestureRecognizer.Direction.right:
+                print(3)
+                arrowRightImage.image = arrowRight[1]
+            case UISwipeGestureRecognizer.Direction.down:
+                print(4)
+                arrowDownImage.image = arrowDown[1]
+            default:
+                break
+            }
         }
-    }
-    
-    
-    @IBAction func txtEditChange(_ sender: UITextField) {
-        if widthInput.text != "" {
-            lineWidth =    CGFloat(Int(widthInput.text!)!)
-        }
-    }
-    
-    @IBAction func txtDidEndOnExit(_ sender: UITextField) {
-        lineWidth =    CGFloat(Int(widthInput.text!)!)
-    }
-    
-    @IBAction func txtTouchDown(_ sender: UITextField) {
-        widthInput.selectAll(UITextField.self)
-    }
-    
-    @IBAction func handleColorChange(_ sender: UIButton) {
-        if sender.currentTitle == "검정색" {
-            lineColor = UIColor.black.cgColor
-        } else if sender.currentTitle == "빨간색" {
-            lineColor = UIColor.red.cgColor
-        } else if sender.currentTitle == "녹색" {
-            lineColor = UIColor.green.cgColor
-        } else if sender.currentTitle == "파란색" {
-            lineColor = UIColor.blue.cgColor
-        }
-    }
-    
-    @IBAction func handleWidthChange(_ sender: UITextField) {
-        lineWidth = CGFloat((sender.text! as NSString).floatValue)
-    }
-    
-    @IBAction func handleClear(_ sender: UIButton) {
-        imageView.image = nil
     }
 }
